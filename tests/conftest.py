@@ -1,3 +1,5 @@
+import sys
+
 import pytest
 from selenium import webdriver
 
@@ -18,8 +20,7 @@ def setup(request):
     global driver
     browser_name = request.config.getoption("browser_name")
     if browser_name == 'chrome':
-        driver = webdriver.Chrome(
-            executable_path='/Users/mac/PycharmProjects/My_python_project/PythonSelenium/chromedriver')
+        driver = webdriver.Chrome(executable_path=sys.path[0] + '/browsers/chromedriver')
     elif browser_name == 'firefox':
         driver = webdriver.Firefox('')
     elif browser_name == 'Safari':
